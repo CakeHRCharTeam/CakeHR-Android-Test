@@ -1,4 +1,4 @@
-# CakeHR Test Android App
+# Android Test App
 
 This app makes a call to a service and populates a list, you are asked to write down on a document all the things you would change in this code, as well as any fixes and tests cases you can come up with.
 
