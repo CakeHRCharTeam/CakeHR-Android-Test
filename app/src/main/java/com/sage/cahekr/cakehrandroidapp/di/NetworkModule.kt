@@ -1,6 +1,6 @@
 package com.sage.cahekr.cakehrandroidapp.di
 
-import com.sage.cahekr.cakehrandroidapp.SWService
+import com.sage.cahekr.cakehrandroidapp.network.SWService
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit

@@ -1,4 +1,4 @@
-package com.sage.cahekr.cakehrandroidapp
+package com.sage.cahekr.cakehrandroidapp.ui
 
 import android.app.Activity
 import android.os.AsyncTask
@@ -7,6 +7,10 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import com.sage.cahekr.cakehrandroidapp.model.Film
+import com.sage.cahekr.cakehrandroidapp.R
+import com.sage.cahekr.cakehrandroidapp.model.ResultsItem
+import com.sage.cahekr.cakehrandroidapp.network.SWService
 import org.koin.android.ext.android.inject
 import retrofit2.Call
 import retrofit2.Response

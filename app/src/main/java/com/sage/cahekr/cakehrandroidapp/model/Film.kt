@@ -1,6 +1,5 @@
-package com.sage.cahekr.cakehrandroidapp
+package com.sage.cahekr.cakehrandroidapp.model
 
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class Film(
