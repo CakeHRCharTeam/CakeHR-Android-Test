@@ -2,16 +2,16 @@ package com.sage.cahekr.cakehrandroidapp.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Film(
+data class FilmResults(
 
 	@SerializedName("count")
 	val count: Int? = null,
 
 	@SerializedName("results")
-	val results: List<ResultsItem>? = null
+	val results: List<Film>? = null
 )
 
-data class ResultsItem(
+data class Film(
 
 	@SerializedName("edited")
 	val edited: String? = null,

@@ -1,6 +1,6 @@
 package com.sage.cahekr.cakehrandroidapp.di
 
-import com.sage.cahekr.cakehrandroidapp.network.SWService
+import com.sage.cahekr.cakehrandroidapp.network.FilmService
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -25,5 +25,5 @@ val networkModule = module {
             .build()
     }
 
-    single { get<Retrofit>().create(SWService::class.java) }
+    single { get<Retrofit>().create(FilmService::class.java) }
 }

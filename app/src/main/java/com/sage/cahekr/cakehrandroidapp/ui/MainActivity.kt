@@ -7,10 +7,10 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import com.sage.cahekr.cakehrandroidapp.model.Film
+import com.sage.cahekr.cakehrandroidapp.model.FilmResults
 import com.sage.cahekr.cakehrandroidapp.R
-import com.sage.cahekr.cakehrandroidapp.model.ResultsItem
-import com.sage.cahekr.cakehrandroidapp.network.SWService
+import com.sage.cahekr.cakehrandroidapp.model.Film
+import com.sage.cahekr.cakehrandroidapp.network.FilmService
 import org.koin.android.ext.android.inject
 import retrofit2.Call
 import retrofit2.Response
@@ -18,7 +18,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    val service: SWService by inject()
+    val service: FilmService by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    class GetFilms(val context: Activity) : AsyncTask<Call<Film>, Void, Response<Film>>() {
-        override fun doInBackground(vararg p0: Call<Film>?): Response<Film>? {
+    class GetFilms(val context: Activity) : AsyncTask<Call<FilmResults>, Void, Response<FilmResults>>() {
+        override fun doInBackground(vararg p0: Call<FilmResults>?): Response<FilmResults>? {
             try {
                 val res = p0[0]?.execute()
                 return res
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        override fun onPostExecute(result: Response<Film>?) {
+        override fun onPostExecute(result: Response<FilmResults>?) {
             Log.d("FILMS", "films retrieved")
             if (result != null) {
                 val adapter = ArrayAdapter<String>(
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        fun getItems(items: List<ResultsItem>): List<String> = items.map { it ->
+        fun getItems(items: List<Film>): List<String> = items.map { it ->
             it.title
         }
 
