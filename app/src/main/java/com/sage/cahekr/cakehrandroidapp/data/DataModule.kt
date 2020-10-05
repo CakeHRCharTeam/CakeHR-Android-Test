@@ -1,13 +1,15 @@
-package com.sage.cahekr.cakehrandroidapp.di
+package com.sage.cahekr.cakehrandroidapp.data
 
-import com.sage.cahekr.cakehrandroidapp.network.FilmService
+import com.sage.cahekr.cakehrandroidapp.data.repository.FilmRepositoryImpl
+import com.sage.cahekr.cakehrandroidapp.data.service.FilmService
+import com.sage.cahekr.cakehrandroidapp.domain.repository.FilmRepository
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-val networkModule = module {
+internal val dataModule = module {
 
     single {
         OkHttpClient.Builder()
@@ -26,4 +28,10 @@ val networkModule = module {
     }
 
     single { get<Retrofit>().create(FilmService::class.java) }
+
+    fun provideRepository(service: FilmService): FilmRepository {
+        return FilmRepositoryImpl(service)
+    }
+
+    single {provideRepository(get()) }
 }
