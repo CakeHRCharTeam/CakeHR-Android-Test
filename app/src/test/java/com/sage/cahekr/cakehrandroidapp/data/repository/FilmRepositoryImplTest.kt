@@ -38,15 +38,12 @@ class FilmRepositoryImplTest {
 
     @Test
     fun `getFilms returns empty if response is empty`() {
-        // given
         coEvery {
             mockService.films()
         } returns FilmResponse(null, listOf())
 
-        // when
         val result = runBlocking { repositoryImpl.getFilms() }
 
-        // then
         result shouldBeEqualTo emptyList()
     }
 }
