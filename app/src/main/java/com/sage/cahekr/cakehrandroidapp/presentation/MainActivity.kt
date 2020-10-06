@@ -1,6 +1,7 @@
 package com.sage.cahekr.cakehrandroidapp.presentation
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private val stateObserver = Observer<MainViewModel.ViewState> { it ->
         adapter.clear()
         adapter.addAll(it.films.map { filmDomainModel -> filmDomainModel.title })
+        progressBar.visibility = if(it.isLoading) View.VISIBLE else View.GONE
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
